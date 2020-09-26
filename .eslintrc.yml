@@ -1,0 +1,114 @@
+---
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
+parserOptions:
+  sourceType: module
+  # project: tsconfig.json
+env:
+  node: true
+  browser: false
+  es6: true
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+rules:
+  # regex
+  no-control-regex: off
+  # irrelevant rules for TypeScript files
+  new-cap: off
+  no-dupe-class-members: off
+  no-redeclare: off
+  no-unused-vars: off
+  getter-return: off
+  '@typescript-eslint/no-parameter-properties': off
+  '@typescript-eslint/no-use-before-define': off
+  '@typescript-eslint/no-unused-vars': off
+  '@typescript-eslint/no-angle-bracket-type-assertion': off
+
+  # rules too-strict
+  '@typescript-eslint/no-triple-slash-reference': off
+  '@typescript-eslint/prefer-interface': off
+  '@typescript-eslint/explicit-function-return-type': off
+  '@typescript-eslint/no-explicit-any': off
+  '@typescript-eslint/explicit-member-accessibility': off
+  'prefer-const': warn
+  '@typescript-eslint/ban-ts-ignore': off
+  '@typescript-eslint/no-empty-function': warn
+  '@typescript-eslint/no-this-alias': warn
+
+  # semantics
+  eqeqeq: [error, smart]
+  handle-callback-err: error
+  no-case-declarations: error
+  no-constant-condition: [error, { checkLoops: false }]
+  no-restricted-globals: [error, event, eval, fdescribe, fit]
+  no-self-compare: error
+  no-console: off
+  no-empty: warn
+  no-inner-declarations: warn
+  no-mixed-operators: [warn, { groups: [['&&', '||']] }]
+  no-return-assign: off
+  no-shadow: warn
+  '@typescript-eslint/no-non-null-assertion': warn
+  '@typescript-eslint/consistent-type-assertions': [warn, { assertionStyle: as, objectLiteralTypeAssertions: never }]
+
+  # syntax consistency
+  brace-style: off
+  comma-dangle: [off, always-multiline]
+  new-parens: off
+  no-extra-parens: off
+  no-extra-semi: off
+  no-sequences: warn
+  no-unneeded-ternary: off
+  no-useless-escape: off
+  no-useless-return: off
+  one-var: [off, never]
+  quotes: [off, single]
+  semi: off
+  '@typescript-eslint/adjacent-overload-signatures': off
+  '@typescript-eslint/array-type': off
+  '@typescript-eslint/camelcase': [warn, { properties: never, ignoreDestructuring: true }]
+  '@typescript-eslint/interface-name-prefix': off
+  '@typescript-eslint/member-delimiter-style': off
+  '@typescript-eslint/no-inferrable-types': off
+  '@typescript-eslint/no-namespace': warn
+  '@typescript-eslint/prefer-namespace-keyword': warn
+  no-useless-constructor: off
+  '@typescript-eslint/no-useless-constructor': warn
+
+  # spacing
+  comma-spacing: warn
+  generator-star-spacing: warn
+  key-spacing: warn
+  keyword-spacing: warn
+  no-multi-spaces: [warn, { exceptions: { ImportDeclaration: true, ExportDeclaration: true } }]
+  no-multiple-empty-lines: warn
+  no-tabs: warn
+  no-trailing-spaces: warn
+  object-curly-spacing: [warn, always]
+  object-property-newline: [warn, { allowAllPropertiesOnSameLine: true }]
+  padded-blocks: [warn, { blocks: never }]
+  semi-spacing: warn
+  space-before-blocks: warn
+  space-before-function-paren: [warn, { anonymous: never, named: never, asyncArrow: always}]
+  space-in-parens: warn
+  space-infix-ops: warn
+  space-unary-ops: warn
+  template-curly-spacing: warn
+  '@typescript-eslint/indent': off
+  '@typescript-eslint/type-annotation-spacing': off
+
+overrides:
+  - files: '**/*.spec.ts'
+    env:
+      jest: true
+  - files: 'server/public/*.ts'
+    env:
+      node: false
+      browser: true
+  - files:
+      - gulpfile.js
+      - 'lambda/**'
+    rules:
+      no-console: off

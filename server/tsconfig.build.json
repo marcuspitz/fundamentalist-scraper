@@ -1,0 +1,21 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../build",
+        "target": "es2018",
+        "module": "commonjs",
+        "sourceMap": true,
+        "listFiles": false,
+        "listEmittedFiles": false,
+        "noEmit": false
+    },
+    "exclude": [
+        "views",
+        "tests",
+        "**/*.spec.ts",
+    ],
+    "files": [
+        "../index.ts",
+        "index.ts",
+    ]
+}
