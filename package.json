@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "gulp lint",
     "start": "node build/index.js",
-    "watch": "nodemon -d 1 -w build --exec \"set debug=rjt:*&& npm start\"",
+    "watch": "nodemon -d 1 -w build --exec \"set debug=fdscp:*&& npm start\"",
     "test": "jest --watch --bail",
     "test-clear": "jest --clearCache",
     "test:ci": "jest --ci --maxWorkers=2 --forceExit",

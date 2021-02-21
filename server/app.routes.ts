@@ -7,6 +7,6 @@ export function routesSetup(app: core.Express) {
 
     //404 - Not found at the end of the routes definitions
     app.use((req, res) => {
-        res.status(404).render('404');
+        res.status(404).send('404');
     });
 }

@@ -49,8 +49,8 @@ export class DatabaseSQ {
             }
         );
         if (lines && lines.length > 0) {
-            const row: any = lines[0];
-            return {...row} as T;
+            const row: T = (lines[0] as any) as T;
+            return { ...row };
         }
         return undefined;
     }

@@ -10,8 +10,6 @@ import express from 'express';
 export function startupConfig(app: core.Express) {
     env.config();
     DatabaseSQ.getSequelize();
-    
-    //const rootDir = path.join(__dirname, '.');
     app.use(logger('dev'));
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
