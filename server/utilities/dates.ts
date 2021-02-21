@@ -172,6 +172,8 @@ export function isExpiredDate(date: Date | undefined) {
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
+const shortMonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 export function getMonthName(date: Date): string {
     return monthNames[date.getMonth()];
 }
@@ -195,4 +197,19 @@ export function getOrdinalDate(date: Date): string {
             suffix = "th";
     }
     return `${day}${suffix}`;
+}
+
+/**
+ * Format Date into "MMM DD, YYYY", eg: "Feb 10, 2021" format
+ */
+export function formatDate(date: Date): string {
+    const d = new Date(date);
+    const month = '' + shortMonthNames[d.getMonth()];
+    const year = d.getFullYear();
+    let day = '' + d.getDate();
+
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [month, day + ',', year].join(' ');
 }

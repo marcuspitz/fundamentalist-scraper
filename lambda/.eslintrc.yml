@@ -1,0 +1,11 @@
+---
+# parserOptions:
+#   project: tsconfig.json
+#   tsconfigRootDir: ./lambda
+overrides:
+  - files: '**/*.ts'
+    env:
+      node: true
+  - files: '**/*.js'
+    rules:
+      semi: [warn, never]

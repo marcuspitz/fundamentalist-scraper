@@ -1,0 +1,10 @@
+{
+    "name": "lambda",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "scripts": {
+        "build": "node ./bin/build",
+        "deploy": "node ./bin/deploy",
+        "makeZip": "node ./bin/makeZip"
+    }
+}

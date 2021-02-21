@@ -1,0 +1,44 @@
+{
+  "name": "jobs-indexing",
+  "version": "1.0.0",
+  "description": "Tell google what job pages he must update or delete from the indexes",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ../bin/rollup",
+    "bundle": "node ../bin/bundle",
+    "preexec": "npm run build",
+    "exec": "node ../bin/exec index"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-sdk": "2.183.0"
+  },
+  "dependencies": {
+    "googleapis": "60.0.1",
+    "aws-xray-sdk-core": "1.1.7",
+    "debug": "3.1.0",
+    "lodash": "4.17.4",
+    "mixpanel": "0.10.1",
+    "request": "2.88.0",
+    "shortid": "2.2.8",
+    "stripe": "5.4.0",
+    "web-push": "3.3.2",
+    "rss-parser": "3.7.3",
+    "html-entities": "1.2.1",
+    "html-to-text": "5.1.1",
+    "request-promise": "4.2.5",
+    "sequelize": "5.21.3",
+    "stemmer": "1.0.5",
+    "node-cache": "5.1.0",
+    "jsonwebtoken": "8.5.1",
+    "md5": "2.2.1",
+    "dotenv": "8.2.0",
+    "mysql2": "2.1.0",
+    "password-validator": "5.0.3",
+    "node-fetch": "2.6.0",
+    "formidable": "1.2.2",
+    "jimp": "0.10.3",
+    "ejs": "3.0.1"
+  }
+}

@@ -1,0 +1,15 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "rootDir": "..",
+        "target": "es2017",
+        "module": "es2015",
+        "outDir": "./build",
+        "listEmittedFiles": true,
+        "noEmit": false
+    },
+    "exclude": [
+        "bin",
+        "build"
+    ]
+}

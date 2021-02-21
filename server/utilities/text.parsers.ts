@@ -12,13 +12,25 @@ export function normalizeTechText(value: string): string {
         removeMultipleSpacesInRow(
             removeSpecialNonTechCharacters(value.trim())
         )
-    , ' ').toLowerCase();
+    , ' ');
 }
 
 export function replaceNewLines(value: string, replacement: string): string {
     return value.replace(/\n/g, replacement).replace(/\n\r/g, replacement).replace(/\r\n/g, replacement);
 }
 
+export function prepareNewLinesBreak(value: string): string {
+    return value
+    .replace(/\\n/g, '-LINE_FEED-')
+    .replace(/\\r/g, '-CARRIAGE_RETURN-');
+}
+
+export function replaceNewLinesBreak(value: string, replacement: string): string {
+    return value
+    .replace(/-CARRIAGE_RETURN--LINE_FEED-/g, replacement)
+    .replace(/-CARRIAGE_RETURN-/g, replacement)
+    .replace(/-LINE_FEED-/g, replacement);
+}
 export function replaceSlash(value: string, replacement: string): string {
     return value.replace(/\\/g, replacement);
 }
@@ -188,4 +200,19 @@ export function doCapitalLetters(sentence: string | null | undefined): string | 
 export function normalizeNumericArrayIntoString(arr: string[]): string {
     return arr.map(t => parseInt(t)).sort()
         .map(t => t.toString()).join(';');
+}
+
+export function joinStr(args: string[], delimiter: string, lastDelimeter?: string): string {
+    if (!lastDelimeter) {
+        lastDelimeter = delimiter;
+    }
+    if (args && args.length > 0) {
+        if (args.length > 2) {
+            const term1 = args.slice(0, args.length - 1).join(delimiter);
+            return [term1, args[args.length - 1]].join(lastDelimeter);
+        } else {
+            return args.join(lastDelimeter);
+        }
+    }
+    return '';
 }

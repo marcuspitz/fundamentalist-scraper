@@ -77,12 +77,12 @@ WBS Gruppe • Mr. Tim-Alexander Leuthold • CODING SCHOOL • Weiskopffstraße
     it('Should validate the URLs given', () => {
         expect(validURL('test.com.')).not.toBeTruthy();
         expect(validURL('https://www.wbs-gruppe.de/')).toBeTruthy();
-        expect(validURL('https://dev.remotetechjobs.com/')).toBeTruthy();
-        expect(validURL('http://dev.remotetechjobs.com/')).toBeTruthy();
-        expect(validURL('dev.remotetechjobs.com/')).toBeTruthy();
-        expect(validURL('remotetechjobs.com/')).toBeTruthy();
-        expect(validURL('www.dev.remotetechjobs.com/')).toBeTruthy();
-        expect(validURL('www.remotetechjobs.com/')).toBeTruthy();
+        expect(validURL('https://dev.test.com/')).toBeTruthy();
+        expect(validURL('http://dev.test.com/')).toBeTruthy();
+        expect(validURL('dev.test.com/')).toBeTruthy();
+        expect(validURL('test.com/')).toBeTruthy();
+        expect(validURL('www.dev.test.com/')).toBeTruthy();
+        expect(validURL('www.test.com/')).toBeTruthy();
     });
 
     it('Should validate the max length', () => {
@@ -128,7 +128,7 @@ Etiam non ex aliquam, eleifend est et, vulputate ipsum. Proin vel felis justo. P
 
     it('Should extract host from sentences', () => {
         expect(extractHost('https://www.wbs-gruppe.de/')).toEqual('wbs-gruppe.de');
-        expect(extractHost('https://dev.remotetechjobs.com/companies/2345/wbs-gruppe')).toEqual('dev.remotetechjobs.com');
+        expect(extractHost('https://dev.test.com/companies/2345/wbs-gruppe')).toEqual('dev.test.com');
     });
 
     it('Should transform each first letter of a word in upper case', () => {
